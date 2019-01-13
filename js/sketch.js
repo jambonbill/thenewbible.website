@@ -19,9 +19,12 @@ let t;//timeout watchdog
 function setup() {
 
   noCanvas();
-  synth.cancel();//in case it's running
 
-  console.log("temperature="+temperature,len+"characters")
+  if (synth) {
+    synth.cancel();//in case it's running
+  }
+
+  console.log("temperature="+temperature, len+"characters")
 
   // Create the LSTM Generator passing it the model directory
   //charRNN = ml5.charRNN('./models/trump/', modelReady);
