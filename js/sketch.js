@@ -12,10 +12,14 @@ let len=256;
 
 let button;
 let runningInference = false;
+var synth = window.speechSynthesis;
+var voices = [];
+let t;//timeout watchdog
 
 function setup() {
 
   noCanvas();
+  synth.cancel();//in case it's running
 
   console.log("temperature="+temperature,len+"characters")
 
@@ -33,6 +37,8 @@ function setup() {
   //button.mousePressed(generate);
   //lengthSlider.input(updateSliders);
   //tempSlider.input(updateSliders);
+      populateVoiceList();
+
 }
 
 // Update the slider values
@@ -54,7 +60,7 @@ function generate() {
   console.log('generate()');
   // prevent starting inference if we've already started another instance
   // TODO: is there better JS way of doing this?
- if(!runningInference) {
+  if(!runningInference) {
 
     runningInference = true;
 
@@ -110,6 +116,8 @@ function generate() {
         //generate();//repeat
       }
     }
+  }else{
+    console.warn("already running");
   }
 }
 
@@ -120,8 +128,6 @@ function rnd(n){
 
 
 
-var synth = window.speechSynthesis;
-var voices = [];
 
 function populateVoiceList() {
 
@@ -134,7 +140,7 @@ function populateVoiceList() {
       else return +1;
   });
 
-  //console.log(voices);
+  console.log(voices.length+" voices");
 
 }
 
@@ -148,7 +154,14 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
 
 function speak(str){
 
-    populateVoiceList();
+    console.log('speak()');
+
+      clearTimeout(t);
+      t=setTimeout(function(){
+          synth.cancel();
+          generate();
+      }, 30000);
+
 
     if (synth.speaking) {
         console.error('speechSynthesis.speaking');
