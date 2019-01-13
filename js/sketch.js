@@ -98,7 +98,7 @@ function generate() {
         }
 
 
-        var node = document.createElement("h1");                 // Create a <li> node
+        var node = document.createElement("li");                 // Create a <li> node
         var textnode = document.createTextNode(txt+' '+result.sample);         // Create a text node
         node.appendChild(textnode);                              // Append the text to <li>
         document.getElementById("result").appendChild(node);
@@ -113,18 +113,6 @@ function generate() {
   }
 }
 
-let n=0;
-function propose(){
-
-  //let seed=rnd();
-
-  //generate();
-
-    var node = document.createElement("h1");                 // Create a <li> node
-    var textnode = document.createTextNode("Water");         // Create a text node
-    node.appendChild(textnode);                              // Append the text to <li>
-    document.getElementById("result").appendChild(node);
-}
 
 function rnd(n){
   return Math.round(Math.random()*n);
