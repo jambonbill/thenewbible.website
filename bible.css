@@ -8,6 +8,13 @@ li{
  font-size:32px;
  font-weight: normal;
 }
+img{
+	margin:16px;
+}
+div{
+	font-size:30px;
+}
+
 html{
   font-family: 'UnifrakturMaguntia', cursive;
 }

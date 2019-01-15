@@ -27,17 +27,24 @@
 
 <body>
 
-  <div style="text-align: center">The New Bible</div>
+  <div style="text-align: center">The New Bible<br />
+    <img src="img/god.jpg"><br />
+    <button id="generate" disabled>Please wait. It's loading</button><br />
+  </div>
 
-  <hr />
+  
+
+  
 
 <!--
   <p>length:
     <input id="lenSlider" type="range" min="10" max="500" value="100"> <span id="length">100</span></p>
   <p>temperature:
     <input id="tempSlider" type="range" min="0" max="1" step="0.01"><span id="temperature">0.5</span></p>
-  <button id="generate">generate</button>
+ 
   -->
+
+
 
   <audio controls autoplay style="display: none">
   <source src="audio.ogg" type="audio/ogg">
@@ -45,9 +52,9 @@
 </audio>
 
 
-  <h4 id="result"></h4>
+  <div id="result"></div>
 
-  <script src="js/sketch.js"></script>
+  <script src="js/bible-en.js"></script>
 <link rel="stylesheet" type="text/css" href="bible.css">
 </body>
 </html>
