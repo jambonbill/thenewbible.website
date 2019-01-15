@@ -36,6 +36,7 @@ function modelReady() {
   btn.onclick=function(){
     //document.getElementById('generate').style.display = 'none';
     console.log('start');
+    document.getElementById('audio1').play();
     generate();
   }
 }
