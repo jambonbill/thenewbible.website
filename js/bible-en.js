@@ -3,7 +3,7 @@ let textInput;
 //let lengthSlider;
 //let tempSlider;
 let temperature=0.5;
-let len=256;
+let len=200;
 
 let button;
 let runningInference = false;
