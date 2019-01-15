@@ -16,8 +16,6 @@ let t;//timeout watchdog
 function setup() {
 
   noCanvas();
-
-
   console.log("temperature="+temperature, len+"characters")
 
   // Create the LSTM Generator passing it the model directory
@@ -45,9 +43,13 @@ function updateSliders() {
 }
 */
 
+function randSeed(){
+  return seeds[rnd(seeds.length)];
+}
+
 function modelReady() {
   console.log('Model Loaded');
-  generate();
+  //generate();
 }
 
 // Generate new text
@@ -67,7 +69,7 @@ function generate() {
     //let original = rnd(100)+":"+rnd(100);
 
     // Make it to lower case
-    let txt = 'Ils sont ';
+    let txt = randSeed();
 
     // Check if there's something to send
     if (txt.length > 0) {
