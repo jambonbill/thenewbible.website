@@ -1,6 +1,6 @@
 let charRNN;
 let textInput;
-let temperature=0.5;
+let temperature=0;//0 works great!
 let len=200;
 let button;
 let runningInference = false;
@@ -15,7 +15,7 @@ function setup() {
   if (synth) {
     synth.cancel();//in case it's running?
   }
-  
+
   // Create the LSTM Generator passing it the model directory
   charRNN = ml5.charRNN('./models/bible/', modelReady);
 }
@@ -36,9 +36,9 @@ function modelReady() {
 
 
 function generate(){// Generate new text
-  
-  document.getElementById('generate').style.display = 'none';  
-  
+
+  document.getElementById('generate').style.display = 'none';
+
   // prevent starting inference if we've already started another instance
   if(runningInference) {
     console.warn("already running");
@@ -98,13 +98,13 @@ function populateVoiceList() {
       else if ( aname == bname ) return 0;
       else return +1;
   });
-  
+
   if(voices.length==0){
     console.error("no voices");
   }else{
-    console.log(voices.length+" voices");  
+    console.log(voices.length+" voices");
   }
-  
+
 }
 
 /*
@@ -115,16 +115,16 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
 
 function speak(str){
 
-    if (synth.speaking) { 
+    if (synth.speaking) {
       synth.cancel();
     }
-    
+
     clearTimeout(t);
     t=setTimeout(function(){
       console.warn("oops, retrying!");
       synth.cancel();
       generate();
-    }, 30000);    
+    }, 30000);
 
     if (synth.speaking) {
         console.error('speechSynthesis.speaking');
