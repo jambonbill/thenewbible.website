@@ -1,6 +1,8 @@
 # thenewbible.website
-This is real !
+A GAN (Generative Adversarial Networks) experiment for text generation, using ml5.js
 
+Trained with the Bible!
 
-#sounds
-https://www.youtube.com/watch?v=m4oZZhpMXP4
+#Demo
+http://thenewbible.jambonbill.org
+
